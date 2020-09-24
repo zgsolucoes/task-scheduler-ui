@@ -1,0 +1,94 @@
+<div class="cadastro-usuario" fxLayout="row" fxLayoutAlign="center center">
+	<mat-card class="cadastro-usuario-box">
+		<mat-card-header>
+			<mat-card-title>Cadastre-se</mat-card-title>
+		</mat-card-header>
+
+		<form class="example-form" [formGroup]="formularioCadastro" (ngSubmit)="onSubmit()">
+			<mat-card-content>
+				<mat-form-field class="example-full-width">
+					<mat-label>Nome</mat-label>
+					<input matInput
+					       [formControl]="nomeFormControl"
+					       placeholder="Ex: Fulano da Silva"
+					       required>
+					<mat-error *ngIf="nomeFormControl.hasError('required')">
+						Nome é obrigatório
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width">
+					<mat-label>E-mail</mat-label>
+					<input matInput
+					       [formControl]="emailFormControl"
+					       placeholder="Ex: exemplo@email.com"
+					       required>
+					<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+						Por favor, informe um e-mail válido
+					</mat-error>
+					<mat-error *ngIf="emailFormControl.hasError('required')">
+						E-mail é obrigatório
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width">
+					<mat-label>Data de Nascimento</mat-label>
+					<input matInput
+					       [formControl]="dataNascimentoFormControl"
+					       [matDatepicker]="picker"
+					       [min]="dataMinima"
+					       [max]="dataMaxima"
+					       name="dataNascimento">
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker [startAt]="dataInicio"></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width">
+					<mat-label>Senha</mat-label>
+					<input matInput
+					       [formControl]="senhaFormControl"
+					       placeholder="Senha com no mínimo 8 caracteres"
+					       [type]="esconderSenha ? 'password' : 'text'"
+					       (input)="onDigitarSenha()"
+					       required>
+					<mat-icon matSuffix (click)="esconderSenha = !esconderSenha">{{ esconderSenha ? 'visibility_off' : 'visibility' }}</mat-icon>
+					<mat-error *ngIf="senhaFormControl.hasError('required')">
+						Senha é obrigatório
+					</mat-error>
+					<mat-error *ngIf="senhaFormControl.hasError('minlength')">
+						Sua senha deve ter no mínimo 8 caracteres
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width">
+					<mat-label>Confirme Senha</mat-label>
+					<input matInput
+					       [formControl]="confirmeFormControl"
+					       placeholder="Confirme a senha"
+					       name="confirmeSenha"
+					       (input)="onDigitarSenha()"
+					       [type]="esconderConfirmarSenha ? 'password' : 'text'"
+					       required>
+					<mat-icon matSuffix (click)="esconderConfirmarSenha = !esconderConfirmarSenha">{{ esconderConfirmarSenha ? 'visibility_off' : 'visibility' }}</mat-icon>
+					<mat-error *ngIf="confirmeFormControl.hasError('required')">
+						Por favor confirme sua senha
+					</mat-error>
+					<mat-error *ngIf="confirmeFormControl.invalid && !confirmeFormControl.hasError('required')">
+						As senhas não conferem
+					</mat-error>
+				</mat-form-field>
+
+			</mat-card-content>
+
+			<button
+				mat-raised-button
+				color="primary"
+				type="submit"
+				class="btn-block"
+				[disabled]="!formularioCadastro.valid"
+				>Cadastrar</button>
+		</form>
+
+	</mat-card>
+
+</div>
