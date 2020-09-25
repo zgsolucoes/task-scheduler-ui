@@ -5,12 +5,29 @@
 				<h2>Task Scheduler</h2>
 			</a>
 			<span class="app-spacer"></span>
+			<div *ngIf="existeUsuarioAutenticado()">
+				<a style="font-size: 14px">
+					Bem-vindo {{ nomeUsuarioLogado() }}
+				</a>
+			</div>
+			<span class="app-spacer"></span>
 			<div>
-				<a mat-button routerLink="/login">
+				<a mat-button
+				   *ngIf="!existeUsuarioAutenticado()"
+				   routerLink="/login">
 					Log in
 				</a>
-				<a mat-button routerLink="/cadastro">
+				<a mat-button
+				   *ngIf="!existeUsuarioAutenticado()"
+				   routerLink="/cadastro">
 					Cadastre-se
+				</a>
+				<a mat-button
+				   *ngIf="existeUsuarioAutenticado()"
+				   (click)="realizarLogout()"
+				   routerLink="/">
+					Sair
+					<mat-icon>login</mat-icon>
 				</a>
 			</div>
 		</mat-toolbar>

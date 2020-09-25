@@ -11,11 +11,13 @@ import { CadastroUsuarioComponent } from './components/usuarios/cadastro-usuario
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { LoginComponent } from './components/login/login/login.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CadastroUsuarioComponent
+        CadastroUsuarioComponent,
+        LoginComponent
     ],
     imports     : [
         CommonModule,
