@@ -7,20 +7,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMaskModule } from 'ngx-mask';
 import { AngularMaterialModule } from './angular-material.module';
+import { CadastroUsuarioComponent } from './components/usuarios/cadastro-usuario/cadastro-usuario.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        CadastroUsuarioComponent
     ],
     imports     : [
+        CommonModule,
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
         AngularMaterialModule,
         NgxMaskModule.forRoot()
     ],
-    providers   : [],
+    providers   : [
+        { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+    ],
     bootstrap   : [AppComponent]
 })
 export class AppModule {}
