@@ -12,12 +12,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { LoginComponent } from './components/login/login/login.component';
+import { ExecutavelListaComponent } from './componentes/executavel/executavel-lista/executavel-lista.component';
+import { ExecutavelEdicaoComponent } from './componentes/executavel/executavel-edicao/executavel-edicao.component';
+import { ExecutavelComponent } from './componentes/executavel/executavel.component';
+import { ExecutavelInicioComponent } from './componentes/executavel/executavel-inicio/executavel-inicio.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CadastroUsuarioComponent,
-        LoginComponent
+        LoginComponent,
+        ExecutavelListaComponent,
+        ExecutavelEdicaoComponent,
+        ExecutavelComponent,
+        ExecutavelInicioComponent
     ],
     imports     : [
         CommonModule,

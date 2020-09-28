@@ -7,6 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
     imports  : [
@@ -17,7 +22,12 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatFormFieldModule,
         MatInputModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatListModule,
+        MatGridListModule,
+        MatChipsModule,
+        MatTooltipModule,
+        MatExpansionModule
     ],
     exports  : [
         MatToolbarModule,
@@ -27,7 +37,12 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatFormFieldModule,
         MatInputModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatListModule,
+        MatGridListModule,
+        MatChipsModule,
+        MatTooltipModule,
+        MatExpansionModule
     ],
     providers: []
 })
