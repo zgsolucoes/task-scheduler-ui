@@ -29,6 +29,11 @@
 				</a>
 				<a mat-button
 				   *ngIf="existeUsuarioAutenticado()"
+				   routerLink="/execucoes">
+					Execuções
+				</a>
+				<a mat-button
+				   *ngIf="existeUsuarioAutenticado()"
 				   (click)="realizarLogout()"
 				   routerLink="/">
 					Sair

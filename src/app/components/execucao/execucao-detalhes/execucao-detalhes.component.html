@@ -1,0 +1,76 @@
+<div class="execucao-detalhe" fxLayout="row" fxLayoutAlign="center">
+	<mat-card class="execucao-detalhe-box">
+		<mat-card-header>
+			<mat-card-title>Detalhes da Execução</mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content>
+			<div class="flex-container">
+				<div fxLayout="column" fxLayoutGap="15px">
+					<div class="flex-item">
+						<p class="execucao-detalhe--topico">ID</p>
+						{{ execucao.id }}
+					</div>
+					<div class="flex-item">
+						<p class="execucao-detalhe--topico">TÍTULO</p>
+						{{ execucao.executavel.titulo }}
+					</div>
+					<div class="flex-item">
+						<p class="execucao-detalhe--topico">CLASSE EXECUTAVEL</p>
+						{{ execucao.executavel.classeExecutavel }}
+					</div>
+					<div class="flex-item">
+						<p class="execucao-detalhe--topico">DATA ÍNICIO</p>
+						{{ execucao.data | date: 'dd/MM/yyyy HH:mm:ss' }}
+					</div>
+					<div class="flex-item">
+						<p class="execucao-detalhe--topico">STATUS</p>
+						{{ execucao.status }}
+					</div>
+					<div class="flex-item">
+						<p class="execucao-detalhe--topico">PROGRESSO</p>
+						{{ execucao.progresso }}
+					</div>
+					<div class="flex-item">
+						<mat-expansion-panel>
+							<mat-expansion-panel-header>
+								<mat-panel-title>Eventos da Execução</mat-panel-title>
+								<mat-panel-description>Clique aqui para expadir</mat-panel-description>
+							</mat-expansion-panel-header>
+
+							<div>
+								<div *ngIf="execucao.eventos.length === 0">
+									Nenhum evento para essa execução.
+								</div>
+
+								<div fxLayout="row" fxLayoutGap="30px"
+								     fxHide.print
+								     *ngFor="let evento of execucao.eventos; let indice = index">
+									<div class="execucao-detalhe--texto-evento">
+										{{ evento.data | date: "HH:mm:ss" }}
+									</div>
+									<div *ngIf="evento.comErro()"
+									     class="execucao-detalhe--texto-evento">
+										<mat-icon color="warn">error</mat-icon>
+									</div>
+									<div *ngIf="evento.comAdvertencia()"
+									     class="execucao-detalhe--texto-evento">
+										<mat-icon>warning</mat-icon>
+									</div>
+									<div *ngIf="evento.comSucesso()"
+									     class="execucao-detalhe--texto-evento">
+										<mat-icon color="primary">done</mat-icon>
+									</div>
+									<div class="execucao-detalhe--texto-evento">
+										{{evento.descricao }}
+									</div>
+
+								</div>
+							</div>
+						</mat-expansion-panel>
+					</div>
+				</div>
+			</div>
+		</mat-card-content>
+	</mat-card>
+</div>

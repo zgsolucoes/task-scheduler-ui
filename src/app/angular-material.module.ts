@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
     imports  : [
@@ -27,7 +29,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
         MatGridListModule,
         MatChipsModule,
         MatTooltipModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule
     ],
     exports  : [
         MatToolbarModule,
@@ -42,7 +46,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
         MatGridListModule,
         MatChipsModule,
         MatTooltipModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule
     ],
     providers: []
 })

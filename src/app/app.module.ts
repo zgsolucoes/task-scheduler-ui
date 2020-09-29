@@ -16,6 +16,10 @@ import { ExecutavelListaComponent } from './componentes/executavel/executavel-li
 import { ExecutavelEdicaoComponent } from './componentes/executavel/executavel-edicao/executavel-edicao.component';
 import { ExecutavelComponent } from './componentes/executavel/executavel.component';
 import { ExecutavelInicioComponent } from './componentes/executavel/executavel-inicio/executavel-inicio.component';
+import { ExecucaoComponent } from './components/execucao/execucao.component';
+import { ExecucaoListaComponent } from './components/execucao/execucao-lista/execucao-lista.component';
+import { ExecucaoDetalhesComponent } from './components/execucao/execucao-detalhes/execucao-detalhes.component';
+import { ExecucaoInicioComponent } from './components/execucao/execucao-inicio/execucao-inicio.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +29,11 @@ import { ExecutavelInicioComponent } from './componentes/executavel/executavel-i
         ExecutavelListaComponent,
         ExecutavelEdicaoComponent,
         ExecutavelComponent,
-        ExecutavelInicioComponent
+        ExecutavelInicioComponent,
+        ExecucaoComponent,
+        ExecucaoListaComponent,
+        ExecucaoDetalhesComponent,
+        ExecucaoInicioComponent
     ],
     imports     : [
         CommonModule,
