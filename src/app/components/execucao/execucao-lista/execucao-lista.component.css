@@ -1,0 +1,39 @@
+.execucao-lista {
+	height: 100%;
+	padding: 1em;
+}
+
+.execucao-lista-box {
+	float: left;
+	padding: 20px 20px 40px 20px;
+	width: 100vh;
+	border-radius: 10px;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	z-index: 5;
+}
+
+.execucao-lista--erro {
+	background: #d0abab;
+}
+
+.execucao-lista--concluida-sucesso {
+	background: #97d990;
+}
+
+.execucao-lista--em-execucao {
+	background: #d1f0f6;
+}
+
+.progress-bar {
+	width: 100%;
+	position: relative;
+	top: 6px;
+}
+
+.example-margin {
+	width: 100%;
+	position: relative;
+	top: 6px;
+}

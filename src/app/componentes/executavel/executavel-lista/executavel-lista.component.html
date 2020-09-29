@@ -26,7 +26,8 @@
 					<h3 mat-line>{{ executavel.titulo }}</h3>
 					<p mat-line>{{ executavel.descricao }}</p>
 
-					<button mat-icon-button>
+					<button mat-icon-button
+					(click)="onDispararExecucao(executavel)">
 						<mat-icon>play_arrow</mat-icon>
 					</button>
 

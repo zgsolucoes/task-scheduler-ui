@@ -1,0 +1,52 @@
+<div class="execucao-lista">
+	<mat-card class="execucao-lista-box">
+		<mat-card-header>
+			<mat-card-title matSubheader>
+				<mat-icon mat-list-icon style="padding-right: 15px">
+					miscellaneous_services
+				</mat-icon>
+				Lista de Execuções
+			</mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content>
+			<mat-nav-list>
+				<a mat-list-item
+				   *ngFor="let execucao of execucoes"
+				   (click)="onSelecionarExecucao(execucao)"
+				   [ngClass]="{'execucao-lista--erro' : execucao.concluidaComErro(),
+								'execucao-lista--concluida-sucesso' : execucao.concluidaComSucesso(),
+								'execucao-lista--em-execucao' : execucao.emExecucao()}">
+					<mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
+
+					<h3 mat-line>{{ execucao.executavel.titulo }}</h3>
+					<p mat-line>ID: {{ execucao.id }}</p>
+					<p mat-line>{{ execucao.data | date: "dd/MM/yyyy HH:mm:ss" }}</p>
+
+					<mat-progress-bar
+							mat-line
+							[color]="execucao.concluidaComErro() ? 'warn' : 'primary'"
+							[mode]="'determinate'"
+							[value]="execucao.progresso"
+					></mat-progress-bar>
+
+					<button mat-icon-button
+					        (click)="reexecutarExecucao(execucao)"
+					        *ngIf="execucao.concluidaComErro() || execucao.concluidaComSucesso()">
+						<mat-icon>replay</mat-icon>
+					</button>
+
+					<button mat-icon-button
+					        (click)="pararExecucao(execucao)"
+					        *ngIf="execucao.emExecucao()">
+						<mat-icon>stop</mat-icon>
+					</button>
+
+					<mat-spinner
+							*ngIf="execucao.emExecucao()"
+							[diameter]="23"></mat-spinner>
+				</a>
+			</mat-nav-list>
+		</mat-card-content>
+	</mat-card>
+</div>
