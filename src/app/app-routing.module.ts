@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroUsuarioComponent } from './components/usuarios/cadastro-usuario/cadastro-usuario.component';
 import { LoginComponent } from './components/login/login/login.component';
-import { ExecutavelComponent } from './componentes/executavel/executavel.component';
-import { ExecutavelInicioComponent } from './componentes/executavel/executavel-inicio/executavel-inicio.component';
-import { ExecutavelEdicaoComponent } from './componentes/executavel/executavel-edicao/executavel-edicao.component';
+import { ExecutavelComponent } from './components/executavel/executavel.component';
+import { ExecutavelInicioComponent } from './components/executavel/executavel-inicio/executavel-inicio.component';
+import { ExecutavelEdicaoComponent } from './components/executavel/executavel-edicao/executavel-edicao.component';
 import { ExecucaoComponent } from './components/execucao/execucao.component';
 import { ExecucaoInicioComponent } from './components/execucao/execucao-inicio/execucao-inicio.component';
 import { ExecucaoDetalhesComponent } from './components/execucao/execucao-detalhes/execucao-detalhes.component';
+import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,6 +30,10 @@ const routes: Routes = [
             { path: '', component: ExecucaoInicioComponent, pathMatch: 'full' },
             { path: ':id/detalhe', component: ExecucaoDetalhesComponent },
         ]
+    },
+    {
+        path     : 'agendamentos',
+        component: AgendamentosComponent
     }
 ];
 
