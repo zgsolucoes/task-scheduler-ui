@@ -1,0 +1,29 @@
+<div class="agendamento-lista">
+	<mat-card class="agendamento-lista-box">
+		<mat-card-title matSubheader>
+			<mat-icon mat-list-icon
+			          style="padding-right: 15px">
+				schedule
+			</mat-icon>
+			Lista de Agendamentos
+		</mat-card-title>
+		<mat-card-content>
+			<mat-nav-list>
+				<a mat-list-item
+				   *ngFor="let agendamento of agendamentos">
+					<mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
+
+					<h3 mat-line>{{ agendamento.executavel.titulo }}</h3>
+					<p mat-line>{{ agendamento.executavel.descricao }}</p>
+					<p mat-line>Data prevista para execução: {{ agendamento.dataExecucao | date: "dd/MM/yyyy" }} às
+						{{ agendamento.horaExecucao }}</p>
+
+					<button mat-icon-button
+					        (click)="onRemoverAgendamento(agendamento)">
+						<mat-icon>delete</mat-icon>
+					</button>
+				</a>
+			</mat-nav-list>
+		</mat-card-content>
+	</mat-card>
+</div>

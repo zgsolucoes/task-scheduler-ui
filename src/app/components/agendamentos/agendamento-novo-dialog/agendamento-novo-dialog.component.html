@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Realizar Agendamento</h1>
+<div mat-dialog-content>
+	<p>{{ dados.titulo }}</p>
+	<p>Qual a data?</p>
+	<mat-form-field fxFlexFill>
+		<mat-label>Data de Execução</mat-label>
+		<input matInput
+		       [(ngModel)]="dados.dataExecucao"
+		       [matDatepicker]="picker"
+		       [min]="dados.dataMinima"
+		       [max]="dados.dataMaxima"
+		       name="dataExecucao"
+		       required>
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker [startAt]="dados.dataMinima"></mat-datepicker>
+	</mat-form-field>
+	<mat-form-field fxFlexFill>
+		<mat-label>Hora</mat-label>
+		<input
+				matInput
+				[(ngModel)]="dados.horaExecucao"
+				placeholder="Ex: 17:30"
+				[dropSpecialCharacters]="false"
+				mask="00:00"
+				[allowNegativeNumbers]="false"
+				required
+		>
+	</mat-form-field>
+</div>
+<div mat-dialog-actions>
+	<button mat-button
+	        mat-raised-button
+	        color="primary"
+	        [mat-dialog-close]="dados"
+	        cdkFocusInitial>OK
+	</button>
+
+	<button mat-button
+	        (click)="onCancelar()"
+	>Cancelar
+	</button>
+</div>

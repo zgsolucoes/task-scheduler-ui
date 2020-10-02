@@ -4,6 +4,10 @@ import { ExecutavelService } from '../../../services/executavel.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ExecucaoService } from '../../../services/execucao.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AgendamentoNovoDialogComponent } from '../../agendamentos/agendamento-novo-dialog/agendamento-novo-dialog.component';
+import { Agendamento } from '../../../models/agendamento.model';
+import { AgendamentoService } from '../../../services/agendamento.service';
 
 @Component({
     selector   : 'app-executavel-lista',
@@ -16,8 +20,10 @@ export class ExecutavelListaComponent implements OnInit, OnDestroy {
 
     constructor(private executavelService: ExecutavelService,
                 private execucaoService: ExecucaoService,
+                private agendamentoService: AgendamentoService,
                 private activatedRoute: ActivatedRoute,
-                private router: Router) {
+                private router: Router,
+                private dialog: MatDialog) {
     }
 
     ngOnInit(): void {
@@ -53,5 +59,23 @@ export class ExecutavelListaComponent implements OnInit, OnDestroy {
             this.execucaoService.criarNovaExecucao(executavel);
             this.router.navigate(['execucoes']);
         }
+    }
+
+    abrirDialogAgendamento(executavel: Executavel): void {
+        const dialogRef = this.dialog.open(AgendamentoNovoDialogComponent, {
+            width: '300px',
+            data : {
+                titulo      : executavel.titulo,
+                dataMinima  : new Date(),
+                dataMaxima  : new Date(2070, 0, 1),
+                dataExecucao: new Date(),
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(resultado => {
+            const agendamento = new Agendamento(123, executavel, resultado.dataExecucao, resultado.horaExecucao);
+            this.agendamentoService.adicionarAgendamento(agendamento);
+            this.router.navigate(['agendamentos']);
+        });
     }
 }

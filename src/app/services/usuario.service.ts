@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,7 @@ export class UsuarioService {
     ];
     private usuarioLogado: Usuario;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     adicionarUsuario(usuario: Usuario): void {
@@ -24,6 +25,7 @@ export class UsuarioService {
 
         if (usuarioValido) {
             this.usuarioLogado = usuarioValido;
+            this.router.navigate(['execucoes']);
         }
 
         return usuarioValido !== undefined;
