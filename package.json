@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~10.1.2",
     "@angular/platform-browser-dynamic": "~10.1.2",
     "@angular/router": "~10.1.2",
+    "@zgsolucoes/task-scheduler-client": "1.0.0",
     "ngx-mask": "^10.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
